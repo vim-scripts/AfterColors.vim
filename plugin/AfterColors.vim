@@ -1,8 +1,8 @@
 " Vim Plugin: AfterColors.vim: 
 " Provides: Automatic sourcing of after/colors/ scripts.
 " Author: Peter Hodge <toomuchphp-vim@yahoo.com>
-" Version: 1.0
-" Last Update: August 21, 2006
+" Version: 1.1
+" Last Update: August 25, 2006
 "
 " Minor Bug: if you just add your 'after/colors' scripts to
 " 'vimfiles/after/colors/myColorsName.vim', when you go to
@@ -14,6 +14,7 @@
 "   vimfiles/after_colors/myColorsName.vim
 " or
 "   vimfiles/after/after_colors/myColorsName.vim
+"
 "
 " Note: because you generally choose your colorscheme in
 " _vimrc and plugins are loaded afterwards, the sequence files
@@ -41,5 +42,9 @@ function! s:AfterColorsScript()
 		" allow two places to store after/colors scripts
 		execute 'runtime! after/colors/' . g:colors_name . '.vim'
 		execute 'runtime! after_colors/' . g:colors_name . '.vim'
+
+		" allow global colors in 'common.vim'
+		execute 'runtime! after/colors/common.vim'
+		execute 'runtime! after_colors/common.vim'
 	endif
 endfunction
