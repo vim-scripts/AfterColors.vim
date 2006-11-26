@@ -4,10 +4,6 @@
 " Version: 1.2
 " Last Update: November 27, 2006
 "
-" Warning: If you only have vim 6, the after/colors scripts will only be
-" invoked once when Vim starts up. (If you only specify your colorscheme in
-" your .vimrc file, this should be good enough.)
-"
 " Minor Bug: if you just add your 'after/colors' scripts to
 " 'vimfiles/after/colors/myColorsName.vim', when you go to
 " use CTRL-D after the 'colors' command, vim will list
@@ -42,8 +38,8 @@ augroup AfterColorsPlugin
 
 	" if this vim has the 'Colorscheme' event, we can hook onto it to ensure
 	" that the 'after' colors are reloaded when the colorscheme is changed
-	if exists('#Colorscheme')
-		autocmd Colorscheme * call s:AfterColorsScript()
+	if exists('##ColorScheme')
+		autocmd ColorScheme * call s:AfterColorsScript()
 	endif
 
 augroup end
